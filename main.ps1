@@ -12,7 +12,7 @@ function Pretend-PlantFiles {
         Get-ChildItem -Path $Path -Force -ErrorAction Stop | ForEach-Object {
             if ($_.PSIsContainer) {
                 # Pretend we plant something in this folder
-                Write-Host ("🌱" * ($Depth + 1)) "Planting wallpaper in: $($_.FullName)"
+                Write-Host ("+" * ($Depth + 1)) "Planting: $($_.FullName)"
                 # Recursively go deeper
                 Pretend-PlantFiles -Path $_.FullName -Depth ($Depth + 1)
             }
@@ -23,9 +23,9 @@ function Pretend-PlantFiles {
 }
 
 # Download the wallpaper
-Write-Host "Downloading wallpaper..."
+Write-Host "Downloading..."
 Invoke-WebRequest -Uri $wallpaperUrl -OutFile $tempPath
-Write-Host "Wallpaper downloaded to $tempPath`n"
+Write-Host "Downloaded to $tempPath`n"
 
 # Pretend-plant in every nested folder under user profile
 $startPath = [Environment]::GetFolderPath("UserProfile")
