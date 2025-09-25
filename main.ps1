@@ -42,4 +42,4 @@ public class Wallpaper {
 "@
 
 [Wallpaper]::SystemParametersInfo(20, 0, $tempPath, 3)
-Write-Host "`nWallpaper planted successfully! 🌿"
+Write-Host "`nCool stuff planted successfully"
